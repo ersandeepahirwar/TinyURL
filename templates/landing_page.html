@@ -1,0 +1,49 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TinyURL built with Django by Sandeep Ahirwar">
+    <title>TinyURL</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <link rel="shortcut icon" href="https://i.ibb.co/cX9bN2P/Favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'css/landing_page.css' %}">
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        <div class="card p-4 text-center">
+            <form action="" method="post" id="shortener_form">
+
+                {% csrf_token %}
+
+                <div class="card-heading fs-4 mb-3 text-secondary">TinyURL</div>
+                <input type="url" id="url" name="url" class="form-control
+                        text-center text-secondary py-1 mb-3" placeholder="Enter URL Here" required />
+                <button type="submit" id="shortener_button" class="btn
+                        btn-link text-secondary active">Shorten</button>
+            </form>
+
+            <div class="shorted_url_container mt-3 text-center">
+                <span id="shorted_url"></span>
+                <i class="far fa-copy mx-1 none" onclick="copy('shorted_url')" id="copy_button"></i>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==">
+        </script>
+    <script src="{% static 'js/landing_page.js' %}"></script>
+</body>
+
+</html>
